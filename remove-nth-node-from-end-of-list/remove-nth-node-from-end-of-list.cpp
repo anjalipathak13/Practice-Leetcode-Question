@@ -16,15 +16,15 @@ public:
         start->next=head;
         ListNode *slow=start,*fast=start;
         for(int i=0;i<n;i++)
-            fast=fast->next; //traverse n nodes
+            fast=fast->next; 
         
-        while(fast->next!=nullptr){  //as i told fast will be at the last node
+        while(fast->next!=nullptr){  
             fast=fast->next;
             slow=slow->next;
         }
-        ListNode *del=slow->next; //step to finish matlab khatam krna hai node ko
-        slow->next=slow->next->next; //next pointer of the slow will point on just after the victim node
-        delete(del); //Khatam \U0001f47b
+        ListNode *del=slow->next; 
+        slow->next=slow->next->next; 
+        delete(del);
         return start->next;
     
         
