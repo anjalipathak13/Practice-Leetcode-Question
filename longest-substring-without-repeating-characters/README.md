@@ -1,4 +1,4 @@
-<h2>3. Longest Substring Without Repeating Characters</h2><h3>Medium</h3><hr><div><p>Given a string <code>s</code>, find the length of the <b>longest substring</b> without repeating characters.</p>
+<h2>3. Longest Substring Without Repeating Characters</h2><h3>Medium</h3><hr><div><p>Given a string <code>s</code>, find the length of the <strong>longest substring</strong> without repeating characters.</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
@@ -21,12 +21,6 @@
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> The answer is "wke", with the length of 3.
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
-</pre>
-
-<p><strong>Example 4:</strong></p>
-
-<pre><strong>Input:</strong> s = ""
-<strong>Output:</strong> 0
 </pre>
 
 <p>&nbsp;</p>
