@@ -1,7 +1,7 @@
 class Solution {
 public:
     void recursion(vector<int> num, int i, int j, vector<vector<int> > &res) {
-        if (i == j-1) {
+        if (i == j) {
             res.push_back(num);
             return;
         }
