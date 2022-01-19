@@ -36,8 +36,8 @@ public:
         }
         
     }
-   /* int minEatingSpeed(vector<int>& piles, int h) {
-        int low=0;
+   int minEatingSpeed(vector<int>& piles, int h) {
+        int low=1;
         int high=INT_MIN;
      for(int i=0;i<piles.size();i++)
      {
@@ -50,7 +50,7 @@ public:
           while(low<=high)
           {
               
-             int mid=(low+high)/2;
+             int mid=low+(high-low)/2;
               if(can_eat(piles,mid,h))
               {
                   ans=mid;
@@ -65,8 +65,8 @@ public:
         return ans;
         
     }
-};*/
-int minEatingSpeed(vector<int>& piles, int h) {
+};
+/*int minEatingSpeed(vector<int>& piles, int h) {
         int maxi = *max_element(piles.begin(), piles.end());
         int s = 1, e = maxi, ans = 0;
         int mid = s + (e-s)/2;
@@ -82,4 +82,4 @@ int minEatingSpeed(vector<int>& piles, int h) {
         }
         return ans;
     }
-};
+};*/
