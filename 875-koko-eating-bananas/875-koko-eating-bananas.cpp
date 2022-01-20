@@ -24,7 +24,7 @@ public:
         return true;
     }*/
     bool can_eat(vector<int>& piles, int k, int h){
-       int hours = 0; //total hours to eat all the bananas
+       int hours = 0;
         for(int i = 0; i < piles.size(); i++){
             hours += (piles[i] + k -1)/k;
         }
@@ -66,20 +66,3 @@ public:
         
     }
 };
-/*int minEatingSpeed(vector<int>& piles, int h) {
-        int maxi = *max_element(piles.begin(), piles.end());
-        int s = 1, e = maxi, ans = 0;
-        int mid = s + (e-s)/2;
-        while(s<=e){
-            if(can_eat(piles, mid, h)){
-                ans = mid;
-                e = mid-1;
-            }
-            else{
-                s = mid+1;
-            }
-            mid = s + (e-s)/2;
-        }
-        return ans;
-    }
-};*/
