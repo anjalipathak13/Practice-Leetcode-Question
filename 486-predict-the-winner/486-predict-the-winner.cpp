@@ -66,31 +66,26 @@ public:
     }*/
     
     
- int  func(vector<int>& nums,int i,int j,int chance)
- {
-     if(i>j)
-         return 0;
-     if(chance==0)
-     {
-         return max(nums[i]+func(nums,i+1,j,1),nums[j]+func(nums,i,j-1,1));
-     }else
-     {
-  return min(func(nums,i+1,j,0),func(nums,i,j-1,0));
- 
-     }
- }
-bool PredictTheWinner(vector<int>& nums) {
-    long long two=0;
-    for(int i=0;i<nums.size();i++)
-    {
-        two+=(long long)nums[i];
+ int static maximum(vector<int>& nums,int i,int j,int chance){
+        
+        if(i>j) return (0);
+        
+        if(chance==0){
+            return max(nums[i] + maximum(nums,i + 1,j,1),nums[j]+                   maximum(nums,i,j-1,1));
+        }else{
+            return min(maximum(nums,i + 1,j,0) ,maximum(nums,i,j-1,0));
+        }
     }
-    int n=nums.size();
-    long long one=(long long)func(nums,0,n-1,0);
-        two-=one;
-    return (one>=two);
-}
+bool PredictTheWinner(vector<int>& nums) {
+       int player2=0;
+        
+        for(auto it:nums) player2+=it;
+        
+        
+         int player1=maximum(nums,0,nums.size() - 1,0);
+        player2-=player1;
+        
+        return player1>=player2;
+    }
 };
-    
-    
     
