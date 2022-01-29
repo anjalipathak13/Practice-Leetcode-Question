@@ -14,9 +14,7 @@ public:
                 continue;
             else
                 p.push(n1-n2);
-            
-            
-        }
+             }
         if(p.size()==1)
             return p.top();
         else
