@@ -23,14 +23,20 @@ public:
     }
 };*/
     priority_queue<int,vector<int>,greater<int>> minheap;
-    int m_k;
+    int m;
     KthLargest(int k, vector<int>& nums) {
-        m_k=k;
-        for(int x:nums)add(x);
+        m=k;
+        for(int i=0;i<nums.size();i++)
+        {
+            minheap.push(nums[i]);
+            if(minheap.size()>k)
+                minheap.pop();
+            
+        }
     }
     
     int add(int val) {
-        if(minheap.size()<m_k)minheap.push(val);
+        if(minheap.size()<m)minheap.push(val);
         else
         {
             if(val>minheap.top())
