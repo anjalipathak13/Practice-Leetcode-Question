@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    void preorder(TreeNode* root,int &count)
+  /*  void preorder(TreeNode* root,int &count)
     {
         if(!root)
             return;
@@ -28,5 +28,38 @@ public:
         int count=0;
         preorder(root,count);
         return count;
+    }*/
+    int findleft(TreeNode* root)
+    {
+        int h=0;
+        while(root)
+        {
+            h++;
+            root=root->left;
+            
+        }
+        return h;
+    }
+    int findright(TreeNode* root)
+    {
+        int h=0;
+        while(root)
+        {
+            h++;
+            root=root->right;
+            
+        }
+        return h;
+    }
+    int countNodes(TreeNode* root) {
+     if(!root)
+         return 0;
+        int lh=findleft(root);
+        int rh=findright(root);
+        if(lh==rh){
+            int p=pow(2,lh)-1;
+            return p;
+            }
+        return 1+countNodes(root->left)+countNodes(root->right);
     }
 };
