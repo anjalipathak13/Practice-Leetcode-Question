@@ -44,8 +44,9 @@ public:
            for(int j=0;j<n;j++)
            {
                if(grid[i][j]==1){
-                
-                    mi[index]=dfs(grid,i,j,n,index);
+                  
+                    mi[index]=
+                        dfs(grid,i,j,n,index);
                    //cout<<ans;
                    maxi=max(maxi, mi[index++]);
                    ans=1;
