@@ -5,7 +5,7 @@ public:
         char x;
         
         for (int i = 0 ; i < s.size() ; i++) {
-            if(s[i] == '(' || s[i] == '{' || s[i] == '[') {
+         if(s[i] == '(' || s[i] == '{' || s[i] == '[') {
                 S.push(s[i]);
                 continue;
             }
