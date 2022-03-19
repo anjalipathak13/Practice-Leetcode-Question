@@ -44,7 +44,7 @@ return ele;
             sum+=x;
             pq.push(x);
         }
-        double sumx=sum;
+        double sum1=sum;
         double target = sum/2.0;
         int res=0;
         while(!pq.empty()){
@@ -54,7 +54,7 @@ return ele;
             sum-=val;
             pq.push(val);
             res++;
-            if(double(sumx-sum)>=target){
+            if(double(sum1-sum)>=target){
                 break;
             }
         }
