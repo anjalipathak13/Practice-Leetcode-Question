@@ -1,9 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
-        //vector<vector<int>matrix;
-       // int matrix[n][n];
-        vector<vector<int> > matrix( n, vector<int>(n) );
+      vector<vector<int> > matrix( n, vector<int>(n) );
         int t=0,l=0,b=n-1,r=n-1;
         int dir=0;
         int number=1;
