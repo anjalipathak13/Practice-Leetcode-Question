@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-void queen(int col,int &count, vector<string>&board, vector<int>&leftRow ,vector<int>&upperDiagonal ,vector<int>&lowerDiagonal,int n){
+  void queen(int col,int &count, vector<string>&board, vector<int>&leftRow        ,vector<int>&upperDiagonal ,vector<int>&lowerDiagonal,int n){
         if(col==n)
         {    
             count++;
