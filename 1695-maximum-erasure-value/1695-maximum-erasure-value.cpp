@@ -28,18 +28,17 @@ public:
     return sum; */
         int maxSum = 0, currSum = 0;
 		unordered_map<int,int> seen; 
-        int i = 0,j = 0; // these are the bounds of current window
-		
+        int i = 0,j = 0; 
         while(j < nums.size())
         {
-            if(!seen[nums[j]]) // if current element is not present in window, then add it to sum and mark it as seen
+            if(!seen[nums[j]]) 
             {
                 currSum += nums[j]; 
                 seen[nums[j]]++; 
                 j++; 
                 maxSum = max(maxSum, currSum);
             }
-            else // if current element is already present in window, start trimming the window from the left
+            else 
             {
                 currSum -= nums[i]; 
                 seen[nums[i]]--;
