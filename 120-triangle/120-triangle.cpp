@@ -15,6 +15,7 @@ int path(int i,int j,vector<vector<int>>&dp,int n,vector<vector<int>>&grid)
         int n=triangle.size();
         //int n=triangle[0].size();
         vector<vector<int>>dp(n,vector<int>(n,-1));
-       return path(0,0,dp,n,triangle); 
+      return path(0,0,dp,n,triangle); 
+        
     }
 };
