@@ -29,7 +29,7 @@ public:
     }
 };*/
         
-        vector<int> ans;
+       /* vector<int> ans;
         int m = p.length(), n = s.length();
         if (n < m)
             return ans;
@@ -52,6 +52,34 @@ public:
         }
         if (ms == mp)
             ans.push_back(n - m);
+        return ans;*/
+          int sl=s.length();
+        int pl=p.length();
+        unordered_map<char,int>ms,mp;
+        for(int i=0;i<pl;i++)
+        {
+            ms[s[i]]++;
+            mp[p[i]]++;
+                
+        }
+        int l=0;
+        vector<int>ans;
+        for(int i=pl;i<sl;i++)
+        {
+            if(ms==mp)
+            {
+                ans.push_back(l);
+              }
+            ms[s[l]]--;
+          
+              if (ms[s[l]] == 0)
+                ms.erase(s[l]);   
+          ms[s[i]]++;
+            l++;
+        }
+        
+        if(ms==mp)
+            ans.push_back(l);
         return ans;
     }
 };
