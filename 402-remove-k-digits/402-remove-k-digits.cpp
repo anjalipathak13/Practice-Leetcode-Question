@@ -1,60 +1,28 @@
 class Solution {
 public:
     string removeKdigits(string num, int k) {
-        /*int n=num.length();
-        string s=num.substr(3);
-        
-        int mini=0;
-        mini = stoi(s);
-        int j=3;
-       for(int i=0;i<num.length()-3+1;i++)
-       {
-           string s=num.substr(0,i)+num.substr(j);
-        cout<<s<<" ";
-           j++;
-           mini=min(mini,stoi(s));
-           
-       }
-        //12219 14219 14319 14329 14322 
-        return to_string(mini);*/
-        if(k>=num.size())
-            return "0";
-        stack<char>s;
-        for(int i=0;i<num.length();i++)
+     stack<char>st;
+        int n=num.size();
+        for(auto c:num)
         {
-            if(s.empty())
-                s.push(num[i]);
-            else{
-            while(!s.empty() && s.top()>num[i]&& k>0)
-            {
-                s.pop();
+            while(!st.empty()&&st.top()>c&&k!=0){
+                st.pop();
                 k--;
-            }
-                s.push(num[i]);
-            }
-        }
-        while(k>0)
-        {
-            s.pop();
-            k--;
-        }
-        if(s.empty())
-            return 0;
-        string ans;
-        while(!s.empty()){
-         ans=s.top()+ans;
-            s.pop();
-        }
-          int i=0;     
-        while(ans[i]=='0')
-        {
-           i++; 
-        }
+            }if(!st.empty()||c!='0')
+            st.push(c);
             
-        if(ans.substr(i)=="") 
-            return "0";
-        return ans.substr(i);
-            
+        }
         
+        //if k!=0;
+        while(!st.empty()&&k--)
+            st.pop();
+        if(st.empty())return "0";
+        while(!st.empty())
+        {
+            num[n-1]=st.top();
+            st.pop();
+            n--;
+        }
+        return num.substr(n);
     }
 };
