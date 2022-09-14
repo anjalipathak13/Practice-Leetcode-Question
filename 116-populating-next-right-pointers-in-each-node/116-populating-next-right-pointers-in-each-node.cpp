@@ -18,26 +18,22 @@ public:
 
 class Solution {
 public:
-    
     Node* connect(Node* root) {
-       Node* prev=root;
-        Node* curr;
-       while(prev)
-       {
-           curr=prev;
-           while(curr&&curr->left)
-           {
-               curr->left->next=curr->right;
-               if(curr->next!=NULL)
-               curr->right->next=curr->next->left;
-               curr=curr->next;
-               
-               
-           }
-           prev=prev->left;
-       }
-           
-        
+        if(root==NULL)return root;
+        Node* curr=root;
+        while(curr->left!=NULL)
+        {
+            Node *temp=curr;
+            while(curr!=NULL)
+            {
+                curr->left->next=curr->right;
+                curr->right->next=curr->next==NULL?NULL:curr->next->left;
+                curr=curr->next;
+                
+                
+            }
+            curr=temp->left;
+        }
         return root;
     }
 };
