@@ -25,7 +25,7 @@ class Solution {
         }
         path(root->left,q,t,sum);
         path(root->right,q,t,sum);
-        q.pop_back();
+       // q.pop_back();
         
         
     }
