@@ -48,37 +48,24 @@ class Solution{
 public:
     Node* sortList(Node* head)
     {
-        // Your Code Here
-         Node* prev = head;
-        Node* curr = head->next;
-
-        // Traverse list
-        while (curr != NULL)
-        {
-            // If curr is smaller than prev, then
-            // it must be moved to head
-            if (curr->data < prev->data)
-            {
-                // Detach curr from linked list
-                prev->next = curr->next;
-
-                // Move current node to beginning
-                curr->next = head;
-                head = curr;
-
-                // Update current
-                curr = prev;
-            }
-
-            // Nothing to do if current element
-            // is at right place
-            else
-                prev = curr;
-
-            // Move current
-            curr = curr->next;
-        }
         
+        Node* prev=head;
+        Node* curr=head->next;
+        Node* next; 
+        
+        while(curr!=NULL){
+            if(curr->data<0){
+               next=curr->next;
+               curr->next=head;
+               prev->next=next;
+               head=curr;
+               curr=next;
+            }
+            else{
+                prev=prev->next;
+                curr=curr->next;
+            }
+        }
         return head;
     
     }
