@@ -11,24 +11,25 @@ using namespace std;
 class Solution {
   public:
     int minLaptops(int N, int start[], int end[]) {
-        // Code here
-          multiset<int> pq;
-        vector<pair<int, int>> v;
-        for(int i = 0; i < N; i++) {
-            v.push_back({start[i], end[i]});
-        }
-        sort(v.begin(), v.end());
-        int ans = 0;
-        for(int i = 0; i < N; i++) {
+      sort(start,start+N);
+
+        sort(end, end+N);
+
+        int i=0, j=1, cnt=1;
+
+        while(i<N && j<N){
+
+            if(start[j]>=end[i])i++;
+
+            else cnt++;
+
+            j++;
+
             
-            if(!pq.empty() && *pq.begin() <= v[i].first) {
-                pq.erase(pq.begin());
-            }
-            else ans++;
-            
-            pq.insert(v[i].second);
+
         }
-        return ans;
+
+        return cnt;
     }
 };
 
