@@ -1,7 +1,6 @@
 # Flattening a Linked List
-## Medium 
-<div class="problem-statement">
-                <p></p><p><span style="font-size:18px">Given a Linked List of size N, where every node represents a sub-linked-list and contains two pointers:<br>
+## Medium
+<div class="problems_problem_content__Xm_eO"><p><span style="font-size:18px">Given a Linked List of size N, where every node represents a sub-linked-list and contains two pointers:<br>
 (i) a<strong> next </strong>pointer to the next node,<br>
 (ii) a<strong>&nbsp;bottom</strong>&nbsp;pointer&nbsp;to a linked list where this node is head.<br>
 Each of the&nbsp;sub-linked-list is in sorted order.<br>
@@ -40,7 +39,7 @@ node in a single level.<strong>
 8          50 
 |                           
 30              
-<strong>Output:</strong> 5-&gt;7-&gt;8-&gt;10-&gt;19-&gt;20-&gt;22-&gt;30-&gt;50
+<strong>Output:</strong> 5-&gt;7-&gt;8-&gt;10-&gt;19-&gt;22-&gt;28-&gt;30-&gt;50
 <strong>Explanation:</strong>
 The resultant linked lists has every
 node in a single level.
@@ -63,5 +62,4 @@ You do not need to read input or print anything. Complete the function <strong>f
 <span style="font-size:18px">0 &lt;= N &lt;= 50<br>
 1 &lt;=<strong> M<sub>i</sub> </strong>&lt;= 20<br>
 1 &lt;= Element of linked list &lt;= 10<sup>3</sup></span></p>
- <p></p>
-            </div>
+</div>
