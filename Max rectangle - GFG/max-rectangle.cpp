@@ -47,7 +47,7 @@ class Solution{
 
 
 
-  int largestRectangleArea(int* heights, int n) {
+  int largestAreaHistogram(int* heights, int n) {
         //int n= heights.size();
 
         vector<int> next(n);
@@ -70,26 +70,23 @@ class Solution{
         return area;
     }
   public:
-    int maxArea(int M[MAX][MAX], int n, int m) {
-
-        //compute area for first row
-        int area = largestRectangleArea(M[0], m);
-
-        for(int i = 1; i<n; i++) {
-            for(int j = 0; j<m; j++) {
-
-                //row udpate: by adding previous row's value
-                if(M[i][j] != 0)
-                    M[i][j] = M[i][j] + M[i-1][j];
+   int maxArea(int M[MAX][MAX], int n, int m) {
+      
+        //compute the area for the firat row
+        int area=largestAreaHistogram(M[0],m);
+        //remaining 
+        for(int i=1;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(M[i][j]!=0)
+                M[i][j]=M[i][j]+M[i-1][j];
                 else
-                    M[i][j] = 0;
+                M[i][j]=0;
             }
-
-            //entire row is updated now
-            area = max(area, largestRectangleArea(M[i],m));
-
+        
+            area=max(area,largestAreaHistogram(M[i],m));
         }
         return area;
+
     }
 };
 
