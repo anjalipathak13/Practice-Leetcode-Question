@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution{
   public:
-    vector<int> nextSmallerElement(int *arr, int n) {
+    vector<int>nextsmaller(int *arr, int n) {
         stack<int> s;
         s.push(-1);
         vector<int> ans(n);
@@ -27,7 +27,7 @@ class Solution{
         return ans;
     }
 
-    vector<int> prevSmallerElement(int* arr, int n) {
+    vector<int> prevsmaller(int* arr, int n) {
         stack<int> s;
         s.push(-1);
         vector<int> ans(n);
@@ -47,27 +47,28 @@ class Solution{
 
 
 
-  int largestAreaHistogram(int* heights, int n) {
+  int largestAreaHistogram(int* a, int m) {
         //int n= heights.size();
 
-        vector<int> next(n);
-        next = nextSmallerElement(heights, n);
+       vector<int>next(m);
+         next=nextsmaller(a,m);
 
-        vector<int> prev(n);
-        prev = prevSmallerElement(heights, n);
+        vector<int>prev(m);
+        prev=prevsmaller(a,m);
+         
+         int area=INT_MIN;
+        for(int i=0;i<m;i++){
+            if(next[i]==-1)
+            next[i] = m;
 
-        int area = INT_MIN;
-        for(int i=0; i<n; i++) {
-            int l = heights[i];
+           int breadth=next[i]-prev[i]-1;
+           int length=a[i]; 
 
-            if(next[i] == -1) {
-                next[i] = n;
-            }
-             int b = next[i] - prev[i] - 1;
-            int newArea = l*b;
-            area = max(area, newArea);
+           int newarea=length*breadth;
+           area=max(area,newarea);
         }
         return area;
+    
     }
   public:
    int maxArea(int M[MAX][MAX], int n, int m) {
