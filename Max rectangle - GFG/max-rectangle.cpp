@@ -9,44 +9,37 @@ using namespace std;
 
 class Solution{
   public:
-    vector<int>nextsmaller(int *arr, int n) {
-        stack<int> s;
-        s.push(-1);
-        vector<int> ans(n);
+   vector<int> nextsmaller(int *a, int n) {
+     vector<int>ans(n,-1);
+      stack<int>s;
 
-        for(int i=n-1; i>=0 ; i--) {
-            int curr = arr[i];
-            while(s.top() != -1 && arr[s.top()] >= curr)
-            {
-                s.pop();
+      for(int i=n-1;i>=0;i--){
+          while(!s.empty() && a[s.top()]>=a[i]){
+              s.pop();
             }
-            //ans is stack ka top
+            if(!s.empty())
             ans[i] = s.top();
-            s.push(i);
-        }
-        return ans;
-    }
 
-    vector<int> prevsmaller(int* arr, int n) {
-        stack<int> s;
-        s.push(-1);
-        vector<int> ans(n);
+          s.push(i);
+       }
+       return ans;
+ }
 
-        for(int i=0; i<n; i++) {
-            int curr = arr[i];
-            while(s.top() != -1 && arr[s.top()] >= curr)
-            {
-                s.pop();
+    vector<int> prevsmaller(int* a, int n) {
+     vector<int>ans(n,-1);
+      stack<int>s;
+
+      for(int i=0;i<n;i++){
+          while(!s.empty() && a[s.top()]>=a[i]){
+              s.pop();
             }
-            //ans is stack ka top
+            if(!s.empty())
             ans[i] = s.top();
-            s.push(i);
-        }
-        return ans; 
+
+          s.push(i);
+       }
+       return ans;
     }    
-
-
-
   int largestAreaHistogram(int* a, int m) {
         //int n= heights.size();
 
