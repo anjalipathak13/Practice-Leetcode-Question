@@ -18,12 +18,12 @@ class Solution
         
         priority_queue<pair<int,char>>pq;
        
-        for(int i='a';i<='z';i++){
-            if(m[i]>0){
-                 pq.push({m[i],i});
+        for(auto i:m){
+            if(i.second>0){
+                 pq.push({i.second,i.first});
             }
             
-            if(m[i]>(n+1)/2)return "-1";
+            if(i.second>(n+1)/2)return "-1";
         }
        string ans="";
         
