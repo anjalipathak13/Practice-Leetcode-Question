@@ -21,13 +21,13 @@ public:
 	       }
 	   }
 	   
-	   vector<int>ans;
+	   vector<int>ans(k);
 	   while(!pq.empty()){
-	       ans.push_back(pq.top());
+	       ans[k-1]=pq.top();
+	       k--;
 	       pq.pop();
 	   }
 	   
-	  reverse(ans.begin(),ans.end());
 	  return ans;
 	}
 
