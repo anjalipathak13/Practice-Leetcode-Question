@@ -19,6 +19,9 @@ class Solution{
             arr[i] = divident;
         }
         
+        //quotient gives new number
+        //remainder gives old number
+        
         for(int i=0;i<n;i++){
             arr[i] = arr[i]/n;
         }
