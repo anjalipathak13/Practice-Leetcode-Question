@@ -10,29 +10,14 @@ using namespace std;
 class Solution{   
 public:
     int klengthpref(string arr[], int n, int k, string str){    
-        
-        int c = 0,i = 0;
-        string s;
-        
-        for( i=0;i<str.length();i++){
-            if(i<k)
-            s+=str[i];
-            else break;
-        }
-        if(i!=k) return 0;
-        
-        for(int i=0;i<n;i++){
-            string temp=arr[i];
-            int j=0;
-            string t="";
-            while(j<temp.length() && j<k){
-                t+=temp[j];
-                j++;
-            }
-            if(t==s)  c++;
+     int c=0;
+     
+     for(int i=0;i<n;i++){
+         if(str.size() >=k  && arr[i].substr(0,k)==str.substr(0,k))
+          c++;
         }
         
-        return c;
+     return c;
     }
 };
 
