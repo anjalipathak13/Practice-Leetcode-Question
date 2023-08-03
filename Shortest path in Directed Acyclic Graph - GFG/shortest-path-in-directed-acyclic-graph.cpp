@@ -8,55 +8,39 @@ using namespace std;
 // User function Template for C++
 class Solution {
   public:
-     void toposort(int node,int vis[],vector<pair<int,int>>adj[],stack<int>&st){
-         vis[node] = 1;
-         
-         for(auto it:adj[node]){
-             if(!vis[it.first]){
-                 toposort(it.first,vis,adj,st);
-             }
-         }
-         st.push(node);
-     }
      vector<int> shortestPath(int N,int M, vector<vector<int>>& edges){
-        // convert the 2D to adj list
+        // code here
         vector<pair<int,int>>adj[N];
-        for(int i=0;i<M;i++){
-            int u = edges[i][0];
-            int v = edges[i][1];
-            int wt = edges[i][2];
-            adj[u].push_back({v,wt});
+        for(int i=0 ; i<edges.size() ; i++){
+            adj[edges[i][0]].push_back({edges[i][1],edges[i][2]});   //node,dis
         }
         
-        //step 1: to to do toposort
-        int vis[N] ={0};
-        stack<int>st;
-        for(int i=0;i<N;i++){
-            if(!vis[i])
-            toposort(i,vis,adj,st);
-        }
+        vector<int>dist(N,INT_MAX);
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;  //dis,node
+        pq.push({0,0});
+        dist[0] = 0;
         
-        //step2 do the distance thing
-        vector<int>dis(N);
-        for(int i=0;i<N;i++) dis[i] = 1e9;
-        
-        dis[0] = 0;
-        while(!st.empty()){
-            int node = st.top();
-            st.pop();
+        while(!pq.empty()){
+            int node = pq.top().second;
+            int dis = pq.top().first;
+            pq.pop();
             
-            for(auto it:adj[node]){
-                int v = it.first;
-                int wt = it.second;
-                
-                if(dis[node]+wt<dis[v])
-                   dis[v] = dis[node]+wt;
+            for(auto i : adj[node]){
+                int adjNode = i.first;
+                int edW = i.second;
+                if(dist[adjNode]>dist[node]+edW){
+                    dist[adjNode] = dist[node]+edW;
+                    pq.push({dist[adjNode],adjNode});
+                }
             }
         }
-         for (int i = 0; i < N; i++) {
-            if (dis[i] == 1e9) dis[i] = -1;
-          }
-        return dis;
+        
+        vector<int>ans(N);
+        for(int i=0;i<dist.size();i++){
+            if(dist[i]==INT_MAX)  ans[i] = -1;
+            else  ans[i] = dist[i];
+        }
+        return ans;
     }
 };
 
