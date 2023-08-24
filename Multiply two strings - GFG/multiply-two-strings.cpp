@@ -45,7 +45,7 @@ class Solution{
        bool f=0;
        string ans="";
        
-       for(int i=res.size()-1;i>-1;i--){
+       for(int i=res.size()-1;i>=0;i--){
            if(res[i]){
                f=1;
            }
@@ -53,6 +53,7 @@ class Solution{
                ans+=(char)(res[i]+'0');
            }
        }
+       
        if(neg){
            ans='-'+ans;
        }
