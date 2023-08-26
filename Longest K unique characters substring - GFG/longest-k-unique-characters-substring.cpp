@@ -22,7 +22,7 @@ class Solution{
         if(m.size()==k){
             maxi = max(maxi,j-i+1);
         }
-        else{
+        else if(m.size()>k){  
             while( m.size()>k){
                 m[s[i]]--;
                 if(m[s[i]]==0) 
