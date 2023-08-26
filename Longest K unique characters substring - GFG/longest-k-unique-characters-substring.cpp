@@ -19,7 +19,7 @@ class Solution{
     
     while(j<n){
         m[s[j]]++;
-        if(m.size()<=k){
+        if(m.size()==k){
             maxi = max(maxi,j-i+1);
         }
         else{
