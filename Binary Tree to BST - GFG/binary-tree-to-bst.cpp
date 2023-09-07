@@ -118,22 +118,29 @@ class Solution{
         solve(root->left,ans);
         solve(root->right,ans);
     }
-    void buildBST(Node* root,vector<int>&ans,int &i){
-        if(root==NULL)  return ;
-        
-        buildBST(root->left,ans,i);
-        root->data = ans[i++];
-        buildBST(root->right,ans,i);
-    }
+      Node* buildBST(vector<int>arr, int st, int end)
+       {
+           if(st>end) return NULL;
+           
+           int mid=(st+end)/2;
+           
+           Node* root=new Node(arr[mid]);
+           
+           root->left=buildBST(arr,st, mid-1);
+           
+           root->right=buildBST(arr, mid+1, end);
+           
+           
+           return root;
+       }
     Node *binaryTreeToBST (Node *root)
     {
         //Your code goes here
         vector<int>ans;
         solve(root,ans);
         sort(ans.begin(),ans.end());
-        int i=0;
-        buildBST(root,ans,i);
-        return root;
+        return buildBST(ans,0,ans.size()-1);
+        
     }
 };
 
